@@ -3,9 +3,10 @@ import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FaSearch, FaHeart, FaRegUser } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
+
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState("false");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState("false");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,14 +35,14 @@ const Navbar = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-6">
             <div className="flex justify-between items-center w-full md:w-auto">
               <a href="/" className="text-4xl font-bold text-pink-600">
-                Royal Pearl Scents and Beauty
+                Royal Pearl Scents and Touch
               </a>
               <button
                 className="md:hidden text-gray-700 hover:text-indigo-600"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle mobile menu"
               >
-                <Menu size={28} />
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
             <div className="w-full md:flex-1 max-w-sm">
